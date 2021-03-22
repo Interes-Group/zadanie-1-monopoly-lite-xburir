@@ -2,12 +2,12 @@ package sk.stuba.fei.uim.oop.chancecards;
 
 import sk.stuba.fei.uim.oop.initialization.*;
 
-public class Card1 extends ChanceBaseCard {
+public class Lotto extends ChanceBaseCard {
 
     //This card will give you the chance to bet money, you can win or lose
 
 
-    public Card1(){
+    public Lotto(){
         super();
         this.type = 1;
         this.cost = 5000;
@@ -18,7 +18,7 @@ public class Card1 extends ChanceBaseCard {
    }
 
     public void question(Player player){
-        System.out.println(effect(cost,probability,"win "+reward+"€"));
+        System.out.println("You have "+probability+" chance to win "+reward+"€ by buying a lotto for "+cost+"€");
         if (player.getMoney()>=cost){
             if(  ask()  ){
                 if(playCard(player)){

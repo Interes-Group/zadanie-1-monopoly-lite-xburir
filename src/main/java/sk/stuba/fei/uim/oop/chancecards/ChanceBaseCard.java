@@ -11,24 +11,13 @@ public abstract class ChanceBaseCard {
     protected int cost;
     protected int reward;
     protected int probability;
-    protected StringBuilder builder;
 
     public ChanceBaseCard(){
         this.used = false;
         this.answer = 'N';
     }
 
-    public String effect(int cost, int probability, String effect){
-        builder = new StringBuilder();
-        builder.append("You have ");
-        builder.append(probability);
-        builder.append("% chance to ");
-        builder.append(effect);
-        builder.append(" for ");
-        builder.append(cost);
-        builder.append("€");
-        return builder.toString();
-    }
+
 
     public boolean ask(){
         this.answer = ZKlavesnice.readChar("Y/N");
@@ -36,7 +25,6 @@ public abstract class ChanceBaseCard {
             return true;
         }
         else if (answer == 'N' || answer == 'n'){
-            System.out.println("You are right, better play it safe");
             return false;
         }
         else{

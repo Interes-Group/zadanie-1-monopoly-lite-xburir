@@ -18,11 +18,17 @@ public class Board {
 
     public void fillChanceCards(){
         for (int i = 0; i < 5;i++){
-            if (i%2 == 0){
-                chanceBaseCardPack[i] = new Card1();
+            if (i%5 == 0){
+                chanceBaseCardPack[i] = new Lotto();
+            }
+            else if (i%5 == 1){
+                chanceBaseCardPack[i] = new BribeAccountant();
+            }
+            else if (i%5 == 2){
+                chanceBaseCardPack[i] = new RobPlayer();
             }
             else{
-                chanceBaseCardPack[i] = new Card2();
+                chanceBaseCardPack[i] = new RobPlayer();
             }
         }
     }
@@ -82,5 +88,7 @@ public class Board {
     public Tile getTile(int i){
         return board[i];
     }
+
+
 
 }

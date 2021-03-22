@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Card2 extends ChanceBaseCard {
+public class BribeAccountant extends ChanceBaseCard {
 
     //This card will give you the chance illegally buy a land
 
-    public Card2(){
+    public BribeAccountant(){
         super();
         this.type = 2;
         this.cost = 10000;
@@ -50,7 +50,7 @@ public class Card2 extends ChanceBaseCard {
 
 
     public void question(Player player,Board board){
-        System.out.println(effect(cost,probability,"get a random land by bribing an accountant"));
+        System.out.println("You have "+probability+" chance get a free land by bribing an accountant with "+cost+"€");
         if(player.getMoney()>cost) {
             if(  ask()  ){
                 if(playCard(player)){
@@ -60,6 +60,9 @@ public class Card2 extends ChanceBaseCard {
                     System.out.println("Also, you are going to prison because you tried to bribe a person");
                     player.sendToPrison();
                 }
+            }
+            else{
+                System.out.println("You are right, better play it safe");
             }
         }
         else{

@@ -65,7 +65,7 @@ public class Game {
             player.addMoney(GameSettings.ROUND_BONUS);
             System.out.println("Player " + player.getName() + " got the round bonus!");
         }
-        steppedOn(player);
+        steppedOn(player, settings.players);
     }
 
     public void throwDice(Player player) {
@@ -80,11 +80,11 @@ public class Game {
             System.out.println("Player " + player.getName() + " got the round bonus!");
         }
 
-        steppedOn(player);
+        steppedOn(player, settings.players);
     }
 
 
-    public void steppedOn(Player player) {
+    public void steppedOn(Player player,Player[] players) {
         int playerPos = player.getPosition();
         Tile current = board.getTile(playerPos);
         if (playerPos == 12) {
@@ -95,7 +95,7 @@ public class Game {
             ((Land) current).steppedOn(player);
         }
         if (current.getType().equals("Chance")) {
-            ((Chance) current).steppedOn(player, board);
+            ((Chance) current).steppedOn(player, board,players);
         }
         if (current.getType().equals("Tax")) {
             ((Tax) current).steppedOn(player);

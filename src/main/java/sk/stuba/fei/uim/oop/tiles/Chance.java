@@ -19,15 +19,18 @@ public class Chance extends Tile{
         }
     }
 
-    public void steppedOn(Player player, Board board){
+    public void steppedOn(Player player, Board board,Player[] players){
 
         for (var card : board.chanceBaseCardPack){
             if (!card.isUsed()){
-                if (card instanceof Card1){
-                    ((Card1)card).question(player);
+                if (card instanceof Lotto){
+                    ((Lotto)card).question(player);
                 }
-                else if (card instanceof Card2){
-                    ((Card2)card).question(player,board);
+                else if (card instanceof BribeAccountant){
+                    ((BribeAccountant)card).question(player,board);
+                }
+                else if (card instanceof RobPlayer){
+                    ((RobPlayer)card).question(player,players);
                 }
                 card.setUsed(true);
                 return;
