@@ -17,7 +17,7 @@ public class Lotto extends ChanceBaseCard {
    }
 
     public void question(Player player){
-        System.out.println("You have "+probability+" chance to win "+reward+"€ by buying a lotto for "+cost+"€");
+        System.out.println("You have "+probability+"% chance to win "+reward+"€ by buying a lotto for "+cost+"€");
         if (player.getMoney()>=cost){
             if(  ask()  ){
                 if(playCard(player)){

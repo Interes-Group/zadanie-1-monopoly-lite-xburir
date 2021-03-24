@@ -13,11 +13,11 @@ public class TaxImmunity extends ChanceBaseCard{
     }
 
     public void question(Player player, Board board){
-        System.out.println("You can buy immunity for the taxes."+cost+"€");
+        System.out.println("You can buy immunity for the taxes "+cost+"€");
         if (player.getMoney()>=cost){
             if(  ask()  ){
                 player.addMoney(-cost);
-                Tax tile = (Tax)board.getTile(player.getPosition());
+                Tax tile = (Tax)board.getTile(18);
                 tile.addPlayersToList(player);
             }
         }

@@ -23,6 +23,7 @@ public class Chance extends Tile{
 
         for (var card : board.chanceBaseCardPack){
             if (!card.isUsed()){
+                card.setUsed(true);
                 if (card instanceof Lotto){
                     ((Lotto)card).question(player);
                 }
@@ -38,7 +39,7 @@ public class Chance extends Tile{
                 else if (card instanceof TaxImmunity){
                     ((TaxImmunity)card).question(player,board);
                 }
-                card.setUsed(true);
+
                 return;
             }
         }

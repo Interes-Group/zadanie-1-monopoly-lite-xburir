@@ -53,7 +53,7 @@ public class RobPlayer extends ChanceBaseCard{
         else{
             this.probability = 100;
             this.probability = probability - reward/500;
-            System.out.println("The probability to rob this player successfully is "+this.probability);
+            System.out.println("The probability to rob this player successfully is "+this.probability+"%");
             System.out.println("Do you want to proceed?");
             if(!ask()){
                 this.target = null;

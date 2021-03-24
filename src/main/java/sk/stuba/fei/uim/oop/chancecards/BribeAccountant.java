@@ -60,7 +60,7 @@ public class BribeAccountant extends ChanceBaseCard {
 
 
     public void question(Player player,Board board){
-        System.out.println("You have "+probability+" chance get a free land by bribing an accountant with "+cost+"€");
+        System.out.println("You have "+probability+"% chance get a free land by bribing an accountant with "+cost+"€");
         if(player.getMoney()>cost) {
             if(  ask()  ){
                 if(playCard(player)){
