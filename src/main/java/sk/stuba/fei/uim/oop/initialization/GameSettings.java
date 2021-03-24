@@ -7,7 +7,7 @@ import sk.stuba.fei.uim.oop.ZKlavesnice;
 import java.util.*;
 
 public class GameSettings {
-    private final int numberOfPlayers;
+    private int numberOfPlayers;
     public final Player[] players;
     private static final int STARTING_MONEY = 100000;
     public static final int PRISON_TIME = 3;
@@ -19,14 +19,20 @@ public class GameSettings {
         initializeNamesOfColors();
 
 
-        numberOfPlayers = ZKlavesnice.readInt("How many players will be playing? ");
+        this.numberOfPlayers = ZKlavesnice.readInt("How many players will be playing? 2 - 11");
         this.players = new Player[numberOfPlayers];
+
+        while(numberOfPlayers > 11 || numberOfPlayers < 2){
+            System.out.println("Invalid number");
+            this.numberOfPlayers = ZKlavesnice.readInt("How many players will be playing? 2 - 11");
+        }
 
         for (int i = 0; i < numberOfPlayers; i++) {
 
             String name = ZKlavesnice.readString("Name of player number " + (i+1));
             printFreeColors(freecolors);
             String color = ZKlavesnice.readString("Color of player number "+ (i+1));
+            color = color.toUpperCase();
             if(freecolors.contains(color)){
                 players[i] = new Player(0, name, STARTING_MONEY, color);
                 freecolors.remove(color);
