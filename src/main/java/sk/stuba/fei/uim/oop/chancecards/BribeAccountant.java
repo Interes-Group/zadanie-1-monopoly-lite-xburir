@@ -13,7 +13,6 @@ public class BribeAccountant extends ChanceBaseCard {
 
     public BribeAccountant(){
         super();
-        this.type = 2;
         this.cost = 10000;
         this.probability = 65; //65% chance
 

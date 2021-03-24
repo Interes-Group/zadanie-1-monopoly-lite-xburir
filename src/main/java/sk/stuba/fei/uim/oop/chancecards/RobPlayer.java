@@ -10,7 +10,6 @@ public class RobPlayer extends ChanceBaseCard{
     public RobPlayer(){
         super();
         this.target = null;
-        this.type = 3;
         this.cost = 10000;
         this.reward = 0;
         this.probability = 100;

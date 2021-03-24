@@ -27,8 +27,11 @@ public class Board {
             else if (i%5 == 2){
                 chanceBaseCardPack[i] = new RobPlayer();
             }
+            else if (i%5 == 3){
+                chanceBaseCardPack[i] = new ControlledMove();
+            }
             else{
-                chanceBaseCardPack[i] = new RobPlayer();
+                chanceBaseCardPack[i] = new ControlledMove();
             }
         }
     }

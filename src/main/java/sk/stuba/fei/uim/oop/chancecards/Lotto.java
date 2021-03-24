@@ -9,7 +9,6 @@ public class Lotto extends ChanceBaseCard {
 
     public Lotto(){
         super();
-        this.type = 1;
         this.cost = 5000;
         this.reward = 50000;
         this.probability = 10; //10% chance

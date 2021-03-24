@@ -5,7 +5,6 @@ import sk.stuba.fei.uim.oop.initialization.Player;
 import java.util.Random;
 
 public abstract class ChanceBaseCard {
-    protected int type;
     protected boolean used;
     protected char answer;
     protected int cost;

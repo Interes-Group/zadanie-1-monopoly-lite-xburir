@@ -4,6 +4,8 @@ import sk.stuba.fei.uim.oop.chancecards.*;
 import sk.stuba.fei.uim.oop.initialization.Board;
 import sk.stuba.fei.uim.oop.initialization.Player;
 
+import javax.naming.ldap.Control;
+
 public class Chance extends Tile{
 
     public Chance(){
@@ -31,6 +33,12 @@ public class Chance extends Tile{
                 }
                 else if (card instanceof RobPlayer){
                     ((RobPlayer)card).question(player,players);
+                }
+                else if (card instanceof ControlledMove){
+                    ((ControlledMove)card).question(player);
+                }
+                else if (card instanceof TaxImmunity){
+                    ((TaxImmunity)card).question(player,board);
                 }
                 card.setUsed(true);
                 return;
