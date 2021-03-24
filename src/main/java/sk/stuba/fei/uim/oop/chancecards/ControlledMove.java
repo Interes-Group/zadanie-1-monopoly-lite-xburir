@@ -2,6 +2,7 @@ package sk.stuba.fei.uim.oop.chancecards;
 
 import sk.stuba.fei.uim.oop.ZKlavesnice;
 import sk.stuba.fei.uim.oop.initialization.Player;
+import sk.stuba.fei.uim.oop.initialization.Game;
 
 public class ControlledMove extends ChanceBaseCard{
 
@@ -12,7 +13,7 @@ public class ControlledMove extends ChanceBaseCard{
 
     }
 
-    public void question(Player player){
+    public void question(Player player,Game game, Player[] players){
         System.out.println("For only "+cost+"€ you can choose to throw with a \"cheat\" dice");
         System.out.println("You wont get the round bonus if you pass the start with this move");
         if (player.getMoney()>=cost){
@@ -23,6 +24,7 @@ public class ControlledMove extends ChanceBaseCard{
                      number = ZKlavesnice.readInt("Choose number from 1-6");
                 }
                 player.move(number);
+                game.steppedOn(player,players);
             }
         }
         else{

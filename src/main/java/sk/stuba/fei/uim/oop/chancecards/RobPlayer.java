@@ -11,8 +11,6 @@ public class RobPlayer extends ChanceBaseCard{
         super();
         this.target = null;
         this.cost = 10000;
-        this.reward = 0;
-        this.probability = 100;
     }
 
     public void choosePlayerToRob(Player[] otherPlayers,Player playerOnMove){
@@ -43,12 +41,17 @@ public class RobPlayer extends ChanceBaseCard{
     public void setRewardAndProbability(){
         System.out.println("Choose the amount of money you want to rob from "+target.getName());
         this.reward = ZKlavesnice.readInt("");
+        if (reward < 1){
+            System.out.println("The number must be positive");
+            setRewardAndProbability();
+        }
         if(reward > target.getMoney()){
             System.out.println("This player does not have that much money!");
             setRewardAndProbability();
 
         }
         else{
+            this.probability = 100;
             this.probability = probability - reward/500;
             System.out.println("The probability to rob this player successfully is "+this.probability);
             System.out.println("Do you want to proceed?");

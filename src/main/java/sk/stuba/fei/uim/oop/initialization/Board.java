@@ -31,7 +31,7 @@ public class Board {
                 chanceBaseCardPack[i] = new ControlledMove();
             }
             else{
-                chanceBaseCardPack[i] = new ControlledMove();
+                chanceBaseCardPack[i] = new TaxImmunity();
             }
         }
     }

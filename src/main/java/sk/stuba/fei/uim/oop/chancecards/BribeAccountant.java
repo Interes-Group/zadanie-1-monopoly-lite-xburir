@@ -33,9 +33,16 @@ public class BribeAccountant extends ChanceBaseCard {
     }
 
     public Land pickRandomLand(ArrayList<Land> frees){
-        Random rand = new Random();
-        int chosen = rand.nextInt(frees.size());
-        return frees.get(chosen);
+        if (!frees.isEmpty()){
+            Random rand = new Random();
+            int chosen = rand.nextInt(frees.size());
+            return frees.get(chosen);
+        }
+        else {
+            System.out.println("All the lands are taken");
+            return null;
+        }
+
     }
 
 
@@ -43,8 +50,12 @@ public class BribeAccountant extends ChanceBaseCard {
 
 
     public void assignLandToPlayer(Player player, Board board){
-        pickRandomLand(getFreeLands(board)).giveLand(player);
-        System.out.println("Property given");
+        Land chosen = pickRandomLand(getFreeLands(board));
+        if (chosen!=null){
+            chosen.giveLand(player);
+            System.out.println("Property given");
+        }
+
     }
 
 

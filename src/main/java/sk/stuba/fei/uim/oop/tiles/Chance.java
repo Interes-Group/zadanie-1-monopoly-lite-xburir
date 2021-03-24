@@ -1,10 +1,8 @@
 package sk.stuba.fei.uim.oop.tiles;
 
 import sk.stuba.fei.uim.oop.chancecards.*;
-import sk.stuba.fei.uim.oop.initialization.Board;
-import sk.stuba.fei.uim.oop.initialization.Player;
+import sk.stuba.fei.uim.oop.initialization.*;
 
-import javax.naming.ldap.Control;
 
 public class Chance extends Tile{
 
@@ -21,7 +19,7 @@ public class Chance extends Tile{
         }
     }
 
-    public void steppedOn(Player player, Board board,Player[] players){
+    public void steppedOn(Player player, Board board,Player[] players, Game game){
 
         for (var card : board.chanceBaseCardPack){
             if (!card.isUsed()){
@@ -35,7 +33,7 @@ public class Chance extends Tile{
                     ((RobPlayer)card).question(player,players);
                 }
                 else if (card instanceof ControlledMove){
-                    ((ControlledMove)card).question(player);
+                    ((ControlledMove)card).question(player,game,players);
                 }
                 else if (card instanceof TaxImmunity){
                     ((TaxImmunity)card).question(player,board);
@@ -47,6 +45,7 @@ public class Chance extends Tile{
         int numberOfCards = board.chanceBaseCardPack.length;
         if (board.chanceBaseCardPack[numberOfCards-1].isUsed()){
             reshuffle(board);
+            steppedOn(player,board,players,game);
         }
 
     }

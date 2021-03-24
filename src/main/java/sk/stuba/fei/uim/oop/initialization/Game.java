@@ -95,7 +95,7 @@ public class Game {
             ((Land) current).steppedOn(player);
         }
         if (current.getType().equals("Chance")) {
-            ((Chance) current).steppedOn(player, board,players);
+            ((Chance) current).steppedOn(player, board,players,this);
         }
         if (current.getType().equals("Tax")) {
             ((Tax) current).steppedOn(player);
